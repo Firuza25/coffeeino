@@ -1,2 +1,2 @@
 # Coffeeino
-Мой проект о кофе ☕
+Coffeeino project☕
