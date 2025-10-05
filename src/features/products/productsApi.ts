@@ -9,11 +9,13 @@ export const productsApi = createApi({
     getProducts: builder.query<Product[], void>({
       query: () => 'products',
       providesTags: (result) =>
-        result ? [...result.map(({ id }) => ({ type: 'Products' as const, id }))] : [],
+        result
+          ? result.map(({ id }) => ({ type: 'Products' as const, id }))
+          : [],
     }),
     getProductById: builder.query<Product, number>({
       query: (id) => `products/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Products', id }],
+      providesTags: (_, __, id) => [{ type: 'Products', id }],
     }),
   }),
 });
